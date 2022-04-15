@@ -14,14 +14,16 @@ def buzzerOFF(): ## This is a function that allows you to turn buzzer off
 def buzzerON(): ## This is a function that allows you to turn buzzer on
      B_pin = 6 ## This is the pin that the buzzer is on, we are just defining it which pin in a variable.
      GPIO.output(B_pin,GPIO.LOW) ## This is telling GPIO 6 to turn on, using the variable we created above.
-     
+
+F = (%s tempature * 1.8) + 32     
 
 while True: ## This is just while loop that is essentially turned on when the paramters below are true.
     temperature = sensor.get_temperature() ## This is a variable that is basically holding another variable that initalizes the temperature sensor and then grabs the temperature itself.
-    print("The temperature is %s celsius" % temperature) ## This line is just printing the current temperature reading as an output so that we can see what the temperature is.
+    print("The temperature is %s F" F) ## This line is just printing the current temperature reading as an output so that we can see what the temperature is.
     time.sleep(.1) ## This is just saying that we want to get the temperature every 10th of a second.
     if temperature >= 25: ## This is the start of an if/else statement that is saying if the temperature is equal to or above 25 degrees to turn on buzzer.
         buzzerON() ## We are calling the function we made on line 10
+        print("Don't leave your pets in the car! TOO HOT!")
     else:
         buzzerOFF() ## We are calling the function made on line 14
 
